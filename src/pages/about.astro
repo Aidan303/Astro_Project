@@ -7,6 +7,9 @@ import Layout from '../layouts/Layout.astro';
 		<header>
 			<h1>About Me</h1>
 			<p>A student-athlete at Fort Lewis College pursuing Computer Information Systems.</p>
+			<p class="page-links">
+				<a href="/">Go to Home Page</a>
+			</p>
 		</header>
 
 		<section>
@@ -51,6 +54,25 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0;
 		font-size: 1.05rem;
 		opacity: 0.95;
+	}
+
+	.page-links {
+		margin-top: 1rem;
+	}
+
+	.page-links a {
+		display: inline-block;
+		padding: 0.5rem 0.8rem;
+		border-radius: 6px;
+		background: rgba(255, 255, 255, 0.2);
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.page-links a:hover,
+	.page-links a:focus-visible {
+		background: rgba(255, 255, 255, 0.3);
 	}
 
 	section {
