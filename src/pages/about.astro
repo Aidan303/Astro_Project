@@ -1,93 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Aidan",
+  country: "United States",
+  occupation: "Student",
+  hobbies: ["soccer", "coding", "sports"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const skillColor = "crimson";
 ---
 
-<Layout>
-	<main>
-		<header>
-			<h1>About Me</h1>
-			<p>A student-athlete at Fort Lewis College pursuing Computer Information Systems.</p>
-			<p class="page-links">
-				<a href="/">Go to Home Page</a>
-			</p>
-		</header>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <style>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+      color: var(--skillColor);
+      font-weight: bold;
+      } 
+    </style>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <h1>{pageTitle}</h1>
+    <h2>... and my new Astro site!</h2>
 
-		<section>
-			<h2>Who I Am</h2>
-			<p>
-				I am a student at Fort Lewis College where I balance academics and athletics as a
-				member of the soccer program. I am currently studying Computer Information Systems,
-				building skills in technology, business systems, and problem-solving.
-			</p>
-			<p>
-				Soccer has taught me discipline, teamwork, and leadership, while my CIS studies are
-				helping me prepare for a career in the tech field.
-			</p>
-		</section>
-	</main>
-</Layout>
+    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
-<style>
-	main {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 2rem 1.5rem;
-		font-family: Georgia, serif;
-		color: #222;
-	}
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    
+    <p>Here are a few facts about me:</p>
+    <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    {identity.hobbies.length >= 2 &&
+        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+    }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
 
-	header {
-		background-color: #1a6b2f;
-		color: #fff;
-		padding: 2rem 1.25rem;
-		border-radius: 8px;
-		margin-bottom: 2rem;
-		text-align: center;
-	}
+  </body>
+</html>
 
-	header h1 {
-		margin: 0 0 0.5rem;
-		font-size: 2.25rem;
-	}
-
-	header p {
-		margin: 0;
-		font-size: 1.05rem;
-		opacity: 0.95;
-	}
-
-	.page-links {
-		margin-top: 1rem;
-	}
-
-	.page-links a {
-		display: inline-block;
-		padding: 0.5rem 0.8rem;
-		border-radius: 6px;
-		background: rgba(255, 255, 255, 0.2);
-		color: #fff;
-		text-decoration: none;
-		font-weight: 600;
-	}
-
-	.page-links a:hover,
-	.page-links a:focus-visible {
-		background: rgba(255, 255, 255, 0.3);
-	}
-
-	section {
-		background: #f9f9f9;
-		border-left: 5px solid #1a6b2f;
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-
-	h2 {
-		margin-top: 0;
-		color: #1a6b2f;
-	}
-
-	p {
-		line-height: 1.7;
-	}
-</style>
