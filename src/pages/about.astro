@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "About Me";
 
@@ -55,6 +56,7 @@ const skillColor = "crimson";
     {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
+    <Footer />
   </body>
 </html>
 
